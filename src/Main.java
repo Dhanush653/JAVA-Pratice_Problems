@@ -1,23 +1,22 @@
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> num = Arrays.asList(233,569,442,760,226,478,197);
-        Comparator<Integer> coms = new Comparator<Integer>() {
+        List<String> str = Arrays.asList("Cherry", "Apple", "Banana", "Watermelon","Pumpkin");
+
+        Comparator<String> com = new Comparator<String>() {
             @Override
-            public int compare(Integer i, Integer j) {
-                if(i %100 < j%100){
+            public int compare(String i, String j) {
+                if(i.length() > j.length())
                     return -1;
-                }
                 else
                     return 1;
             }
         };
-        num.sort(coms);
-        for(int n : num){
+        str.sort(com);
+        for(String n : str){
             System.out.println(n);
         }
     }
