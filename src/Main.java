@@ -1,20 +1,27 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<phone> phoneSort = new ArrayList<>();
-        //phone ob =new phone("a",799,4);
+        List<Integer> num = Arrays.asList(21,45,76,34,98,67,43);
 
-        phoneSort.add(new phone ("Samsung",75000,8));
-        phoneSort.add(new phone("oppo",90000,16));
-        phoneSort.add(new phone("Vivo",80000,8));
-        phoneSort.add(new phone("Apple",65000,4));
+        int result = num.stream()
+                .distinct()
+                .sorted()
+                .skip(1)
+                .findFirst()
+                .orElse(0);
+        System.out.println("The second smallest Element is: "+ result);
 
-        List<phone> result = phoneSort.stream()
-                .sorted(Comparator.comparing(phone::getPrice))
-                .toList();
-        result.forEach(n-> System.out.println(n));
+        List<Integer> num1 = Arrays.asList(21,45,76,34,98,67,43);
+
+        int result1 = num1.stream()
+                .distinct()
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst().orElse(0);
+        System.out.println("The Second Largest Element is: " + result1);
     }
 }
