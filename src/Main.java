@@ -1,23 +1,29 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> str = Arrays.asList("Cherry", "Apple", "Banana", "Watermelon","Pumpkin");
-
-        Comparator<String> com = new Comparator<String>() {
-            @Override
-            public int compare(String i, String j) {
-                if(i.length() > j.length())
-                    return -1;
-                else
-                    return 1;
-            }
-        };
-        str.sort(com);
-        for(String n : str){
-            System.out.println(n);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a Number: ");
+        int num = scanner.nextInt();
+        int temp = num;
+        int temp1 = num;
+        int count = 0;
+        int sum = 0;
+        int power;
+        while(temp > 0){
+            temp = temp / 10;
+            count = count + 1;
         }
+        for(int i = 0; i< count;i++){
+            int val = num % 10;
+            num = num / 10;
+            power = (int) Math.pow(val, count);
+            sum = sum + power;
+        }
+        if(temp1 == sum){
+            System.out.println("The given number is Armstrong Number");
+        }
+        else
+            System.out.println("The Armstrong Number is not Amstrong Number");
     }
 }
