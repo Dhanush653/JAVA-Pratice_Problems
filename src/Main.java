@@ -1,29 +1,16 @@
-import java.util.*;
-
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        String sym = "*";
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a Number: ");
-        int num = scanner.nextInt();
-        int temp = num;
-        int temp1 = num;
-        int count = 0;
-        int sum = 0;
-        int power;
-        while(temp > 0){
-            temp = temp / 10;
-            count = count + 1;
+        int row;
+        System.out.println("Enter the number of Rows: ");
+        row = scanner.nextInt();
+        for(int i =1; i<=row;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print(" "+ sym + " ");
+            }
+            System.out.println();
         }
-        for(int i = 0; i< count;i++){
-            int val = num % 10;
-            num = num / 10;
-            power = (int) Math.pow(val, count);
-            sum = sum + power;
-        }
-        if(temp1 == sum){
-            System.out.println("The given number is Armstrong Number");
-        }
-        else
-            System.out.println("The Armstrong Number is not Amstrong Number");
     }
 }
