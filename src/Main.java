@@ -1,16 +1,29 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        String sym = "*";
         Scanner scanner = new Scanner(System.in);
-        int row;
-        System.out.println("Enter the number of Rows: ");
-        row = scanner.nextInt();
-        for(int i =1; i<=row;i++){
-            for(int j=1;j<=i;j++){
-                System.out.print(" "+ sym + " ");
+        System.out.println("Enter the target element: ");
+        int target = scanner.nextInt();;
+        System.out.println("Enter the number of Elements: ");
+        int num = scanner.nextInt();
+        int[] arr = new int[num];
+        System.out.println("Enter the elements one by one: ");
+        for(int i=0;i<num;i++){
+            int input = scanner.nextInt();
+            arr[i] = input;
+        }
+        boolean found = false;
+        for(int i=0; i<num;i++){
+            for(int j = 0; j<num;j++){
+                if(arr[i] + arr[j] == target){
+                    System.out.print("["+i+",");
+                    System.out.println(j + "]");
+                    found = true;
+                }
             }
-            System.out.println();
+        }
+        if(!found){
+            System.out.println("error");
         }
     }
 }
