@@ -1,29 +1,28 @@
-import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the target element: ");
-        int target = scanner.nextInt();;
-        System.out.println("Enter the number of Elements: ");
-        int num = scanner.nextInt();
-        int[] arr = new int[num];
-        System.out.println("Enter the elements one by one: ");
-        for(int i=0;i<num;i++){
-            int input = scanner.nextInt();
-            arr[i] = input;
-        }
-        boolean found = false;
-        for(int i=0; i<num;i++){
-            for(int j = 0; j<num;j++){
-                if(arr[i] + arr[j] == target){
-                    System.out.print("["+i+",");
-                    System.out.println(j + "]");
-                    found = true;
-                }
+    public static void main(String[] args) throws IOException
+    {
+        FileInputStream instream = null;
+        FileOutputStream outstream = null;
+
+        try{
+            instream = new FileInputStream("D:\\Fincare\\DemoPratice\\JAVA_Pratice\\ByteDemo.txt");
+            outstream = new FileOutputStream("D:\\Fincare\\DemoPratice\\JAVA_Pratice\\Bytewrite.txt");
+            int content;
+            while((content=instream.read()) != -1){
+                outstream.write ((byte) content);
             }
         }
-        if(!found){
-            System.out.println("error");
+        finally {
+            if(instream != null){
+                instream.close();
+            }
+            if(outstream != null){
+                outstream.close();
+            }
         }
     }
 }
